@@ -42,7 +42,10 @@
 <div class="form-group">
             <label for="description">description</label>
             <textarea class="form-control" id="description" row="5" name="description" value="{{old ($projects->description)}}"></textarea>
-</div>
+            @error('subtitle')
+            <div class="text-danger">* {{ $message }}</div>
+            @enderror
+        </div>
 <input type="hidden" name="id" value="{{ $projects->id }}">
 <button type="submit" class="btn btn-primary">Submit</button>
 <a href="/projects/{{$projects->id}}" class="btn btn-primary">Back</a>

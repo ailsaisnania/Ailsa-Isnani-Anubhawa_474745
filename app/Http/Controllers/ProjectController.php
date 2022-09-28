@@ -45,8 +45,9 @@ class ProjectController extends Controller
     {
         //validating data
         $validateData = $request->validate([
-            'title'=> 'required|AlphaNum', //alpha numerik tidak menerima spasi sehingga tidak menerima input lebih dari 1 kata
-            'subtitle' => 'required'
+            'title'=> 'required|min:2', //alpha numerik tidak menerima spasi sehingga tidak menerima input lebih dari 1 kata
+            'subtitle' => 'required',
+            'description' => 'required'
         ]);
 
         //req input
@@ -107,8 +108,9 @@ class ProjectController extends Controller
     {
         //validating data
         $validateData = $request->validate([
-            'title'=> 'required|AlphaNum', //alpha numerik tidak menerima spasi sehingga tidak menerima input dengan 1 kata
-            'subtitle' => 'required'
+            'title'=> 'required|min:2', //alpha numerik tidak menerima spasi sehingga tidak menerima input dengan 1 kata
+            'subtitle' => 'required',
+            'description' => 'required'
         ]);
 
         project::where('id', $request->id)->update(['title'=>$request->title,
