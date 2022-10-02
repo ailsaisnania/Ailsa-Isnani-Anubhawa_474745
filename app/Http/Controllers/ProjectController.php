@@ -18,7 +18,8 @@ class ProjectController extends Controller
         //
         $data = array(
             'id' => "projects" ,
-            'projects' => project::all()
+            'projects' => project::orderBy('title')->paginate(10)
+
         );
         return view('projects.index')->with($data);
 

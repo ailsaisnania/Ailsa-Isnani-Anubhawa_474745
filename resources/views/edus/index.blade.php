@@ -1,4 +1,4 @@
-@extends ('layouts.app')
+@extends ('layouts.apps')
 
  
 @section('content')
@@ -56,4 +56,15 @@
           <h3>Tidak ada data</h3>
       </div>
       @endif
+      <br/>Page : {{ $edus->currentPage() }} <br />
+      shown : {{ $edus->perPage() }} <br />
+from: {{ $edus->total() }} <br />
+
+<div class="d-flex">
+{{ $edus->links() }}
     </div>
+    <a href="{{ route('edus.create') }}" class="cta">Create New Post</a>
+
+    </div>
+
+    @endsection

@@ -16,7 +16,7 @@ class EduController extends Controller
     {
         $data = array(
             'id' => "edus" ,
-            'edus' => edu::all()
+            'edus' => edu::orderBy('year')->paginate(10)
         );
         return view('edus.index')->with($data);
 

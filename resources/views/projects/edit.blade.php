@@ -1,3 +1,4 @@
+
 <head>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.2.1/dist/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
@@ -34,14 +35,14 @@
 
 <div class="form-group">
             <label for="subtitle">subtitle</label>
-            <textarea class="form-control" id="subtitle" row="5" name="subtitle" value="{{ old($projects->subtitle) }}"></textarea>
+            <textarea class="form-control" id="subtitle" row="5" name="subtitle" value="{{ old($projects->subtitle) }}">{{ $projects->subtitle }}</textarea>
             @error('subtitle')
             <div class="text-danger">* {{ $message }}</div>
             @enderror
         </div>
 <div class="form-group">
             <label for="description">description</label>
-            <textarea class="form-control" id="description" row="5" name="description" value="{{old ($projects->description)}}"></textarea>
+            <textarea class="form-control" id="description" row="5" name="description" value="{{old ($projects->description)}}">{{$projects->description}}</textarea>
             @error('subtitle')
             <div class="text-danger">* {{ $message }}</div>
             @enderror

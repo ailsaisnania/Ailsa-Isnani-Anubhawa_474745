@@ -1,4 +1,4 @@
-@extends ('layouts.app')
+@extends ('layouts.apps')
 
 @section('content')
 <body>
@@ -96,3 +96,4 @@
   </section>
   <!-- End About Section -->
 
+@endsection

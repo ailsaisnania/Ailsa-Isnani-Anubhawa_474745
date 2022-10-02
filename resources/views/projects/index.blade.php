@@ -1,4 +1,4 @@
-@extends ('layouts.app')
+@extends ('layouts.apps')
 
  
 @section('content')
@@ -16,16 +16,6 @@
       </div>
       <div class="all-projects">
   
-        <div class="project-item">
-          <div class="project-info">
-            <h1>AI Project</h1>
-            <h2>Help in data labelling</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-          </div>
-          <div class="project-img">
-            <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="img">
-          </div>
-        </div>
        
         @if(count($projects)>0)
             @foreach($projects as $project)
@@ -44,9 +34,16 @@
           <h3>Tidak ada data</h3>
       </div>
       @endif
+      <br/>Page : {{ $projects->currentPage() }} <br />
+      shown : {{ $projects->perPage() }} <br />
+from: {{ $projects->total() }} <br />
+
+<div class="d-flex">
+{{ $projects->links() }}
     </div>
     <a href="{{ route('projects.create') }}" class="cta">Create New Post</a>
+
   </section>
   <!-- End Projects Section -->
 
-
+@endsection
