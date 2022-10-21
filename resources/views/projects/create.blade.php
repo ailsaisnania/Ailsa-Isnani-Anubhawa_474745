@@ -16,6 +16,9 @@
         </ul>
     </div>
 @endif
+@auth
+ <p align="center">Welcome, <b>{{ Auth::user()->name }}</b><br> lets add more projects!</p>
+ @endauth
     <h1 class="display-4">Add New Project</h1>
     <form action="{{ route('projects.store') }}" method="POST">
 {{ csrf_field()}}
@@ -43,5 +46,7 @@
 <a href="/projects" class="btn btn-primary">Back</a>
 
 </form>
+
+
 </div>
 </div>

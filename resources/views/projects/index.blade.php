@@ -4,6 +4,7 @@
 @section('content')
  <!-- Projects Section -->
   <section id="projects">
+
     <div class="projects container">
       @if (\Session::has('success'))
       <div class="alert alert-success">
@@ -42,8 +43,8 @@ from: {{ $projects->total() }} <br />
 {{ $projects->links() }}
     </div>
     <a href="{{ route('projects.create') }}" class="cta">Create New Post</a>
-
   </section>
   <!-- End Projects Section -->
+
 
 @endsection

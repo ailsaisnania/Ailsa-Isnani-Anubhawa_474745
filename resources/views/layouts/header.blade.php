@@ -31,6 +31,16 @@
       <li class="nav-item">
         <a href="/home" class="nav-link d-block">Ailsa Isnania</a>
       </li>
+      @guest
+      <li class="nav-item">
+      <a class="btn btn-primary" href="{{ route('login') }}">Login</a>
+      </li>
+      @endguest
+      @auth
+      <li class="nav-item">
+      <a class="btn btn-danger" href="{{ route('logout') }}">Logout</a>
+      </li>
+      @endauth
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>

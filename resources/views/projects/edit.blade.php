@@ -19,6 +19,10 @@
     </div>
 @endif
 
+@auth
+ <p align="center">Hello, <b>{{ Auth::user()->name }}</b><br> do you want to edit your projects?</p>
+ @endauth
+ 
     <h1 class="display-4">Edit This Project</h1>
     <form action="{{ route('projects.update', $projects->id) }}" method="POST">
     @method('PUT')

@@ -4,6 +4,10 @@
 
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
+    
+@auth
+ <p align="center">Hello, <b>{{ Auth::user()->name }}</b><br> do you want to edit your projects?</p>
+ @endauth
     <h1 class="display-4">Make changes</h1>
     <form action="{{ route('about.update', $abouts->id) }}" method="POST" enctype="multipart/form-data"> @method('PUT')
 {{ csrf_field()}}

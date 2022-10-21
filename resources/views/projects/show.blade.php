@@ -28,16 +28,5 @@
     <a href="/projects/hapus/{{$projects->id}}" onclick="return confirm('are you sure to delete this project?');" class="btn btn-danger btn-sm">Delete</a>
     </form>
 
-    <!-- <form method="POST" action="{{ route('projects.destroy', $projects->id) }}">
-    @method('DELETE')
-    @csrf
-    <button type="submit" class="btn btn-danger ms-1 show_confirm" data-toggle="tooltip" title='Delete'>Delete Confirmation</button>
-</form> -->
-
-<!-- <input type="hidden" name="id" value="{{$projects->id }}"> <br></br>
-<a href="/projects/delete/{{$projects->id}}" onclick="return confirm('Apakah Anda Yakin Menghapus Project Ini?');" class="btn btn-danger btn-sm">Delete</a>
-                </form>
-</div> -->
-
 </section>
 @endsection

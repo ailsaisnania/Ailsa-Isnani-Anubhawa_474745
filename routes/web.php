@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,9 +60,9 @@ Route::get('/ppw2', function() {
 
 
 
-   Route::get('/home', function() {
-    return view('home');
-});
+//    Route::get('/home', function() {
+//     return view('home');
+// });
 
 Route::get('/about', function() {
     return view('about');
@@ -86,7 +87,6 @@ Route::get('/abouts/edit', function() {
 
 
 
-
 Route::resource('posts',
 'App\Http\Controllers\PostController');
 
@@ -103,7 +103,14 @@ Route::resource('edus',
 Route::resource('about',
 'App\Http\Controllers\AboutController');
 
+Route::get('/', function() {
+    return view('home.index');
+});
+
 Route::get('projects/hapus/{id}', [App\Http\Controllers\ProjectController::class, 'hapus']);
 
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-
+Auth::routes([
+    'reset' => false,
+   ]);

@@ -1,15 +1,19 @@
 @extends ('layouts.apps')
 
 @section('content')
+
 <body>
-
-
   <!-- Header  -->
   <section id="hero">
     <div class="hero container">
       <div>
-        <h1>Hello,</h1>
-        <h1>I'am Ailsa!</h1>
+        <h1>Hello, </h1>
+        <h1>Welcome </h1>
+
+        @auth
+        <h1>{{ Auth::user()->name }}</h1>
+        @endauth
+
         <a href="#" type="button" class="cta">Download Resume</a>
       </div>
     </div>
@@ -95,5 +99,7 @@
     </div>
   </section>
   <!-- End About Section -->
+
+
 
 @endsection

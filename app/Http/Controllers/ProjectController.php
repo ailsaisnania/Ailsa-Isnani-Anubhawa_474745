@@ -144,4 +144,9 @@ class ProjectController extends Controller
         $projects->delete();
         return redirect('/projects')->with(['success' => 'data has succesfully removed']);
     }
+
+    public function __construct()
+    {
+    $this->middleware('auth', ["except" => ["index", "show"]]);
+    }
 }

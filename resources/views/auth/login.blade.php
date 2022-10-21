@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('layouts.apps')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col">
             <div class="card">
                 <div class="card-header">{{ __('Login') }}</div>
 
@@ -51,6 +51,8 @@
                             </div>
                         </div>
 
+
+
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -66,6 +68,7 @@
                         </div>
                     </form>
                 </div>
+                <p>dont have account yet?  <a class="btn btn-info" href="{{ route('register') }}">Register</a>
             </div>
         </div>
     </div>
