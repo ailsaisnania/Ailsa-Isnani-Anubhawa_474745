@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -103,6 +106,10 @@ Route::resource('edus',
 Route::resource('about',
 'App\Http\Controllers\AboutController');
 
+
+Route::resource('',
+'App\Http\Controllers\SendEmailController');
+
 Route::get('/', function() {
     return view('home.index');
 });
@@ -114,3 +121,22 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Auth::routes([
     'reset' => false,
    ]);
+
+   Route::get('/send-email',function(){
+    $data = [
+    'name' => 'Nama Anda',
+    'body' => 'Testing Kirim Email'
+    ];
+   
+    Mail::to('ailsaisnani@gmail.com')->send(new SendEmail($data));
+   
+    dd("Email successfully sent.");
+   });
+
+
+
+   Route::get('/send-email', [App\Http\Controllers\SendEmailController::class, 'index'])->name('kirim-email');
+Route::post('/post-email', [App\Http\Controllers\SendEmailController::class, 'store'])->name('post-email');
+
+Auth::routes();
+

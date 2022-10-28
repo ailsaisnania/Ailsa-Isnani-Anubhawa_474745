@@ -94,7 +94,7 @@
       <div class="col-right">
         <h1 class="section-title">About Me</h1>
         <p>Student of Gadjah Mada University of Software Engineering Major. have experienced in working with python and front-end programming and also developed excellent time-management skills, detail oriented and can work well under pressure.</p>
-        <a href="#" class="cta">Download Resume</a>
+        <a href="/send-email" class="cta">SEND EMAIL</a>
       </div>
     </div>
   </section>
