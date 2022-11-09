@@ -17,5 +17,4 @@ class project extends Model
         'description'
     ];
 
-
 }

@@ -24,10 +24,15 @@
  @endauth
  
     <h1 class="display-4">Edit This Project</h1>
-    <form action="{{ route('projects.update', $projects->id) }}" method="POST">
+    <form action="{{ route('projects.update', $projects->id) }}" method="POST" enctype="multipart/form-data">
     @method('PUT')
 {{ csrf_field()}}
-
+<div class="form-group">
+    <div>      
+        <img src="{{asset('storage/projects_image/'.$projects->picture)}}" alt="no image" style="width:50%; height:50%">
+    </div>
+    <input type="file" class="form-control" accept="projects_image/*" name="picture">
+</div>
 
         <div class="form-group">
             <label for="title">Title</label>
@@ -51,9 +56,11 @@
             <div class="text-danger">* {{ $message }}</div>
             @enderror
         </div>
+
 <input type="hidden" name="id" value="{{ $projects->id }}">
 <button type="submit" class="btn btn-primary">Submit</button>
 <a href="/projects/{{$projects->id}}" class="btn btn-primary">Back</a>
+
 
 
 </form>

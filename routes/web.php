@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -139,4 +140,5 @@ Auth::routes([
 Route::post('/post-email', [App\Http\Controllers\SendEmailController::class, 'store'])->name('post-email');
 
 Auth::routes();
+
 

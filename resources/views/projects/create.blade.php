@@ -20,8 +20,18 @@
  <p align="center">Welcome, <b>{{ Auth::user()->name }}</b><br> lets add more projects!</p>
  @endauth
     <h1 class="display-4">Add New Project</h1>
-    <form action="{{ route('projects.store') }}" method="POST">
+    <form action="{{ route('projects.store') }}" method="POST" enctype="multipart/form-data">
 {{ csrf_field()}}
+
+<div class="form-group">
+            <label for="input-file">file input</label>
+            <div class="input-group">
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="input-file" name="picture">
+            <label class="custom-file-label" for="input-file" accept="projects_image/*"> Choose File </label>
+</div>
+</div>
+</div>
 
         <div class="form-group">
             <label for="title">Title</label>

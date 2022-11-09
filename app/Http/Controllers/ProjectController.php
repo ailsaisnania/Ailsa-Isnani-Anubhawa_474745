@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\project;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class ProjectController extends Controller
 {
@@ -18,7 +21,7 @@ class ProjectController extends Controller
         //
         $data = array(
             'id' => "projects" ,
-            'projects' => project::orderBy('title')->paginate(10)
+            'projects' => project::orderBy('title')->paginate(7)
 
         );
         return view('projects.index')->with($data);
@@ -48,11 +51,27 @@ class ProjectController extends Controller
         $validateData = $request->validate([
             'title'=> 'required|min:2', //alpha numerik tidak menerima spasi sehingga tidak menerima input lebih dari 1 kata
             'subtitle' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'picture'=> 'image|nullable||max:19999'
         ]);
+
+
+        if ($request->hasFile('picture')){
+            $filenameWithExt = $request -> file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('picture')->storeAs('public/projects_image',$filenameSimpan);
+            $destinationPath = public_path('/thumbnail');
+        } else {
+            $filenameSimpan = 'noimage.png';
+        }
+
+
 
         //req input
         $projects = new project;
+        $projects->picture = $filenameSimpan;
         $projects->title = $request->input('title');
         $projects->subtitle = $request->input('subtitle');
         $projects->description = $request->input('description');
@@ -113,11 +132,23 @@ class ProjectController extends Controller
             'subtitle' => 'required',
             'description' => 'required'
         ]);
+        if ($request->hasFile('picture')){
+            $filenameWithExt = $request -> file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('picture')->storeAs('public/projects_image',$filenameSimpan);
+        } else {
+            $filenameSimpan = 'noimage.png';
+        }
 
-        project::where('id', $request->id)->update(['title'=>$request->title,
+        project::where('id', $request->id)->update([
+        'title'=>$request->title,
         'subtitle'=> $request-> subtitle,
-        'description'=> $request->description
+        'description'=> $request->description,
+        'picture' => $filenameSimpan
        ]);
+
        
        return redirect('projects')-> with('success','data succesfully updated');
         //
@@ -140,8 +171,10 @@ class ProjectController extends Controller
 
     public function hapus($id)
     {
-        $projects = Project::find($id);
-        $projects->delete();
+        $projects = project::find($id);
+        File::delete(public_path() . '/public/projects_image/' . $projects->picture);
+    
+        
         return redirect('/projects')->with(['success' => 'data has succesfully removed']);
     }
 
@@ -150,3 +183,4 @@ class ProjectController extends Controller
     $this->middleware('auth', ["except" => ["index", "show"]]);
     }
 }
+

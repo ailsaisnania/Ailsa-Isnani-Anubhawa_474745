@@ -7,10 +7,12 @@
         <h1 class="section-title">See<span>More</span>Detail</h1>
       </div>
       <div class="all-projects">
-            <h1>{{$projects->title}}</h1>
-            <h3>{{$projects->subtitle}}</h3>
+            <h1 style="margin-top:20px; font-size:30px; font-style:bold">{{$projects->title}}</h1>
+            <img src="{{asset('storage/projects_image/'.$projects->picture)}}" alt="no image" style="width:250px; height:250px">
+            <h3 style="margin-top:20px; font-size:20px">{{$projects->subtitle}}</h3>
             <p>{{$projects-> description}}</p>
     </div>
+
     <input type="hidden" class="delete_id"  name="id" value="{{ $projects->id }}">
     <a href="/projects/{{$projects->id}}/edit" class="btn btn-primary">Edit</a>
     <br>
@@ -25,7 +27,7 @@
     btn-danger">Delete</button>
 
     <input type="hidden" name="id" value="{{$projects->id }}"> <br></br>
-    <a href="/projects/hapus/{{$projects->id}}" onclick="return confirm('are you sure to delete this project?');" class="btn btn-danger btn-sm">Delete</a>
+    <!-- <a href="/projects/hapus/{{$projects->id}}" onclick="return confirm('are you sure to delete this project?');" class="btn btn-danger btn-sm">Delete</a> -->
     </form>
 
 </section>
