@@ -62,7 +62,7 @@ class ProjectController extends Controller
             $extension = $request->file('picture')->getClientOriginalExtension();
             $filenameSimpan = $filename.'_'.time().'.'.$extension;
             $path = $request->file('picture')->storeAs('public/projects_image',$filenameSimpan);
-            $destinationPath = public_path('/thumbnail');
+            $destinationPath = public_path('/thumbnail');  
         } else {
             $filenameSimpan = 'noimage.png';
         }

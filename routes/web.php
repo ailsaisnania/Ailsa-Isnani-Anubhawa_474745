@@ -141,4 +141,6 @@ Route::post('/post-email', [App\Http\Controllers\SendEmailController::class, 'st
 
 Auth::routes();
 
+Route::resource('gallery', 'App\Http\Controllers\GalleryController');
+
 
