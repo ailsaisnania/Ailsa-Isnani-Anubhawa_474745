@@ -143,4 +143,7 @@ Auth::routes();
 
 Route::resource('gallery', 'App\Http\Controllers\GalleryController');
 
-
+// Route::get('/greet', [GreetController::class, 'greet'])->name ('greet');
+// Route::get('/gallery2', [GalleryController::class, 'indexs'])-> name('indexs');
+Route::get('/gallery2', 'App\Http\Controllers\GalleryController@indexs');
+Route::get('/greet', [GreetController::class, 'greet'])->name('greeting');
