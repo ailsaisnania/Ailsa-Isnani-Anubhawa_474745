@@ -24,7 +24,7 @@
         <a href="/projects" class="nav-link">Post Project</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a class="nav-link" href="{{ url('/gallery') }}">Gallery</a>
+        <a class="nav-link" href="{{ url('/gallery2') }}">Gallery</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto">
