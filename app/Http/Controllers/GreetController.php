@@ -86,8 +86,12 @@ public function index(Request $request){
         'menu' => 'Gallery',
         'galleries' => project::where('picture', '!=',
         '')->whereNotNull('picture')->orderBy('title',
-        'desc')->paginate(7)
+        'desc')->paginate(20)
         );
-        return $data;
+        return view('gallery.index-api');
+        }
+
+        public function gallery(Request $request) {
+            return view ('gallery.index-api');
         }
 }

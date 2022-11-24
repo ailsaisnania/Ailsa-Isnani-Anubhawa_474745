@@ -41,5 +41,7 @@
 <script src="{{asset('lte/dist/js/adminlte.min.js')}}"></script>
 <script src="{{ asset('lightbox2/dist/js/lightbox-plus-jquery.min.js')
 }}"></script>
+<script src="{{asset('gallery.js')}}"></script>
+
 </body>
 </html>

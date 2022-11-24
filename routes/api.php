@@ -23,4 +23,7 @@ Route::get('/greet', 'App\Http\Controllers\GreetController@greet');
 // Route::get('/gallery', 'App\Http\Controllers\GalleryController@index');
 // Route::get('/gallery2', 'App\Http\Controllers\GalleryController@indexs');
 // Route::Resource('gallery', GalleryController::class);
-Route::resource('gallery', 'App\Http\Controllers\GalleryController');
+Route::get('/gallery', 'App\Http\Controllers\GalleryController@index');
+
+
+

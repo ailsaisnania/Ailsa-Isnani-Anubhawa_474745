@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SendEmail;
+use App\Http\Controllers\GreetController;
 
 
 
@@ -145,5 +146,6 @@ Route::resource('gallery', 'App\Http\Controllers\GalleryController');
 
 // Route::get('/greet', [GreetController::class, 'greet'])->name ('greet');
 // Route::get('/gallery2', [GalleryController::class, 'indexs'])-> name('indexs');
-Route::get('/gallery2', 'App\Http\Controllers\GalleryController@indexs');
+// Route::get('/gallery2', 'App\Http\Controllers\GalleryController@indexs');
+Route::get('/gallery2', [GreetController::class, 'gallery'])->name('gallery');
 Route::get('/greet', [GreetController::class, 'greet'])->name('greeting');
